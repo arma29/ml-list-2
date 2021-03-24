@@ -7,7 +7,7 @@ O Objetivo do projeto é a realização de experimentos utilizando o k-NN normal
 - pip
 - virtualenv
 - pacotes texlive
- - sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng cm-super
+  - sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng cm-super
 
 
 ### Passos
