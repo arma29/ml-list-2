@@ -70,7 +70,7 @@ def plot_hq_summary(parameters_dict):
 
     filename = get_project_results_dir().joinpath(dataset_name + '_summary.eps')
 
-    # pu.save_fig(fig, str(filename))
+    pu.save_fig(fig, str(filename))
     # plt.show()
 
 def plot_hq_summary_p(parameters_dict):
@@ -133,7 +133,7 @@ def plot_hq_summary_p(parameters_dict):
 
     filename = get_project_results_dir().joinpath(dataset_name + '_summary_p.eps')
 
-    # pu.save_fig(fig, str(filename))
+    pu.save_fig(fig, str(filename))
     # plt.show()
 
 def plot_hq_mtx(parameters_dict):
@@ -177,11 +177,11 @@ def plot_hq_mtx(parameters_dict):
     
     filename = get_project_results_dir().joinpath(dataset_name + '_cf_mtx.eps')
     
-    # pu.save_fig(fig, str(filename))
+    pu.save_fig(fig, str(filename))
     # plt.show()
 
 def produce_report(parameters_dict):
     plot_hq_summary(parameters_dict)
     plot_hq_summary_p(parameters_dict)
     plot_hq_mtx(parameters_dict)
-    plt.show()
+    # plt.show()

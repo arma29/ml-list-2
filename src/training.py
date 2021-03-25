@@ -14,7 +14,7 @@ from sklearn.model_selection import cross_val_score
 def create_dict(X,y,target_names, dataset_name):
     parameters_dict = {
         'k_lst': [1, 3],
-        'p_lst': range(10,55,5),
+        'p_lst': range(10,35,5),
         'measures_lst': ['LVQ1', 'LVQ2.1', 'LVQ3', 'None'],
         'magic_number': 5,
         'elapsed_time': 0,
@@ -26,9 +26,10 @@ def create_dict(X,y,target_names, dataset_name):
     return parameters_dict
 
 def print_elapsed_time(parameters_dict):
+    dataset_name = parameters_dict['dataset_name']
     time_in_seconds = parameters_dict['elapsed_time']
     delta = datetime.timedelta(seconds=time_in_seconds)
-    print(f'\nTempo do Experimento: {time_in_seconds} segundos - {delta} hh:mm:ss')
+    print(f'{dataset_name} - Tempo do Experimento: {time_in_seconds} segundos - {delta} hh:mm:ss')
 
 def has_saved_model(dataset_name):
     filename = get_project_models_dir().joinpath(dataset_name + '.joblib')
@@ -58,7 +59,7 @@ def train_model(X,y,target_names,dataset_name):
     cv = KFold(n_splits=10,random_state=1,shuffle=True)
 
     for measure in parameters_dict['measures_lst']:
-        print ('*'*10, dataset_name, '*'*10, '\n')
+        # print ('*'*10, dataset_name, '*'*10, '\n')
 
         processing_time = []
         acc = []
@@ -99,7 +100,7 @@ def train_model(X,y,target_names,dataset_name):
             # Saving measurements
             processing_time.append(np.mean(tmp_proc_time))
             acc.append(np.mean(scores))
-            print(f'Acc Cust: {acc[-1]} - k = {k}; measure = {measure}')
+            # print(f'Acc Cust: {acc[-1]} - k = {k}; measure = {measure}')
             acc_std.append(np.std(scores))
 
         new_key = f'{measure}-k'
